@@ -1,31 +1,33 @@
 'use strict';
 
 let testData = [
-    ['Part #', 'Description', 'Cost'],
-    ['Part #', 'Description', 'Cost'],
-    ['Part #', 'Description', 'Cost'],
-    ['Part #', 'Description', 'Cost']
+{Bin: "", Category: "Resistors, Trim Potentiometers", Subcategory:""},
+    {Bin: "", Category: "Trim Potentiometers", Subcategory: ""},
+    {Bin: "", Category: "Resistors", Subcategory: ""},
+    {Bin: "", Category: "Resistors, Trim Potentiometers", Subcategory: ""},
+    {Bin: "", Category: "Trim Potentiometers", Subcategory: ""}
 ];
-
 let globalData = [];
 
 // Start up page set-up
 document.querySelector ('#search-btn').addEventListener ('click', search);
 
-d3.csv("data/ece-catalog.csv")
-    .then(function(data) {
-        console.log (data);
-        generateCategory (data);
-        globalData = data;
-    })
-    .catch (function (error) {
-        console.log (error);
-    });
+// d3.csv("data/ece-catalog.csv")
+//     .then(function(data) {
+//         console.log (data);
+//         generateCategory (data);
+//         globalData = data;
+//     })
+//     .catch (function (error) {
+//         console.log (error);
+//     });
+
+generateCategory (testData);
 
 function generateCategory (data) {
     let categories = [];
     data.forEach ((item) => {
-        if (!categories.indexOf (item.Category)) {
+        if (categories.indexOf (item.Category) == -1) {
             categories.push (item.Category);
         }
     });
