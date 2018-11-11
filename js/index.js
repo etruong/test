@@ -84,10 +84,11 @@ function search () {
     let filteredData = globalData.data;
     if (globalData.mode == "query") {
         filteredData = globalData.data.filter ((item) => {
-            let check = Object.keys(item).map ( (key) => {
-                return (item [key].toLowerCase().indexOf (globalData.query.toLowerCase()) >= 0);
-            });
-            return (check.indexOf (true) >= 0);
+            // let check = Object.keys(item).map ( (key) => {
+            //     return (item [key].toLowerCase().indexOf (globalData.query.toLowerCase()) >= 0);
+            // });
+            return (item.Description.toLowerCase().indexOf (globalData.query.toLowerCase() >= 0));
+            // return (check.indexOf (true) >= 0);
         });
     } else {
         filteredData = globalData.data.filter ((item) => {
