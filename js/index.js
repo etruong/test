@@ -12,17 +12,17 @@ let globalData = [];
 // Start up page set-up
 document.querySelector ('#search-btn').addEventListener ('click', search);
 
-// d3.csv("data/ece-catalog.csv")
-//     .then(function(data) {
-//         console.log (data);
-//         generateCategory (data);
-//         globalData = data;
-//     })
-//     .catch (function (error) {
-//         console.log (error);
-//     });
+d3.csv("data/ece-catalog.csv")
+    .then(function(data) {
+        console.log (data);
+        generateCategory (data);
+        globalData = data;
+    })
+    .catch (function (error) {
+        console.log (error);
+    });
 
-generateCategory (testData);
+// generateCategory (testData);
 
 function generateCategory (data) {
     let categories = [];
